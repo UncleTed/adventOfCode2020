@@ -1,5 +1,4 @@
-# 10-11 w: wwwwwtwwwwww
-# 517
+
 
 def make_range(s):
     (l, r) = s.split('-')
@@ -23,7 +22,8 @@ def count_characters(r,target,password):
     else:
         return 0
 
-
+# 10-11 w: wwwwwtwwwwww
+# 517
 def part1():    
     total = 0
     with open("./input.txt", "r") as f:
@@ -33,14 +33,18 @@ def part1():
 
     print(f'part 1: {total}')
 
-
+#1-3 a: abcde is valid: position 1 contains a and position 3 does not.
 def part2():
     total = 0
     with open("./input.txt", "r") as f:
         for line in f:
             (the_range, target_character, password) = split_the_line(line)
+            first_char_matches = list(password)[the_range[0]-1] == target_character
+            second_char_matches = list(password)[the_range[1]-1] == target_character
+            if first_char_matches ^ second_char_matches:
+                total = total +1
 
-    print(f'part 2: ')
+    print(f'part 2: {total}')
 
 part1()
 part2()
