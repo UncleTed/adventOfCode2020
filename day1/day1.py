@@ -23,8 +23,11 @@ def find_terms_recursive(the_list, the_value):
 print(f'The first answer is: {first} * {second} = {first * second}')
 
 
-
+# 449, 1198, 373
+# please don't make me search through the whole list
 small_list = list(filter(lambda x: x < 1200, expenseReport))
 print(small_list)
 for i, s in enumerate(small_list):
-    print(f'{s} {find_terms(small_list, 2020 - small_list[i])}')
+    if find_terms(small_list, 2020 - small_list[i]):
+        print(f'{s} {find_terms(small_list, 2020 - small_list[i])}')
+        break
