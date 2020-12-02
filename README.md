@@ -5,7 +5,7 @@ Ted's further adventures in python and the Advent Of Code 2020
 # How to setup your environment
 We are using Linux, python3 (3.8.6) and a python virtual enviroment. This whole setup is based on the tutorial found at: https://realpython.com/python-virtual-environments-a-primer/
 
-## Install the Linux packages
+## Install VSCode packages
 ```
 cd ~/tmp
 git clone https://aur.archlinux.org/visual-studio-code-bin.git
@@ -13,7 +13,6 @@ cd visual-studio-code-bin/
 makepkg -si
 ```
   
-
 ## Enable the python virtual environment
 `python -m venv env`
 
@@ -66,7 +65,7 @@ Open the workspace settings file located in .vscode/settings.json and add the js
 `"editor.codeLens": false`
 
 ## Running unit tests in the terminal
-python -m unittest discover -s ./test -p *_test.py
+~~python -m unittest discover -s ./test -p *_test.py~~
 
 ## Bibliography
 * https://adventofcode.com/2020
