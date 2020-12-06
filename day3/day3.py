@@ -1,5 +1,5 @@
 grid = []
-with open("./input.txt", "r") as f:
+with open("./short.txt", "r") as f:
     for line in f:
         grid.append(list(line.rstrip()))
 
@@ -12,12 +12,28 @@ def make_forest_csv():
 
 def toboggan(right, down):
     trees = 0
-    for index, row in enumerate(grid):
-        length_of_row = len(row)
-        c = (index * right) % length_of_row
-        if row[c] == '#':
+    r = down
+    while r < len(grid):
+        length_of_row = len(grid[r])
+        c = (r * right) % length_of_row
+        print(r, c)
+        if grid[r][c] == '#':
             trees = trees + 1
+        r = r + down
     print(f'Right {right}, down {down}: {trees}')
+
+def toboggan_down_2(right, down):
+    trees = 0
+    r = down
+    while r < len(grid):
+        length_of_row = len(grid[r])
+        c = (r -1 * right) % length_of_row
+        print(r, c)
+        if grid[r][c] == '#':
+            trees = trees + 1
+        r = r + down
+    print(f'Right {right}, down {down}: {trees}')
+
 
 def part1():
     toboggan(3, 1)
@@ -28,6 +44,7 @@ def part2():
     toboggan(3,1)
     toboggan(5,1)
     toboggan(7,1)
+    toboggan_down_2(1,2)
 
 
 part1()
