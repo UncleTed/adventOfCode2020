@@ -1,6 +1,5 @@
 
 function frequency_counter(customs_form, num_people) {
-    
     split(customs_form, answers, "")
     delete frequency
     for (i in answers) {
@@ -8,7 +7,6 @@ function frequency_counter(customs_form, num_people) {
     }
     return length(frequency)
 }
-
 
 function group_answers(customs_form, num_people) {
     split(customs_form, answers, "")
@@ -18,19 +16,18 @@ function group_answers(customs_form, num_people) {
             frequency[answers[j]] = frequency[answers[j]] + 1
         }
     }
-    
+    number_of_matches = 0
     for(f in frequency){
-        print f ":" frequency[f]
-        if (frequency[f] != num_people) {
-            return "false"
+        # print f ":" frequency[f]
+        if (frequency[f] == num_people) {
+            number_of_matches = number_of_matches + 1
         }
-
     }
-    return "true"
+    return number_of_matches
 }
 
 BEGIN {
-    group[0]
+    # group[0]
     counter =0
 }
 NF > 0 {
@@ -38,14 +35,14 @@ NF > 0 {
         group[counter] = group[counter]$0
     }
 NF == 0 {
-    group[counter] = group[counter]" "frequency_counter(group[counter])
+    # group[counter] = group[counter]" "frequency_counter(group[counter])
     group[counter] = group[counter]" "group_answers(group[counter], people)
     counter = counter +1
     people = 0
 }
 # make sure to check the last line
 END {
-    group[counter] = group[counter]" "frequency_counter(group[counter])
+    # group[counter] = group[counter]" "frequency_counter(group[counter])
     group[counter] = group[counter]" "group_answers(group[counter], people)
     for (key in group) {
         print key , ":", group[key]
