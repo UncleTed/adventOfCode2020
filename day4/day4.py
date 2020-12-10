@@ -3,7 +3,6 @@ valid = ['hcl', 'iyr', 'pid', 'ecl', 'hgt','eyr', 'byr' ]
 
 def check_passport_part1(buffer):
     passport = map(lambda x: x.split(':')[0], buffer.split(' '))
-    print passport
     for v in valid:
         if v not in passport:
             return False
@@ -63,7 +62,7 @@ def part2():
                 if check_passport_part2(passport):
                     total = total + 1
                 buffer = ''
-    print total
+    print (total)
 
 
 def part1():
@@ -77,7 +76,7 @@ def part1():
                 if check_passport_part1(buffer):
                     total = total + 1
                 buffer = ''
-    print total
+    print (total)
 
 #part1()
 part2()
